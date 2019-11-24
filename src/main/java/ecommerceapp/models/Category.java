@@ -24,7 +24,7 @@ public class Category {
 	private Collection<Product> products;
 
 	public Integer getId() {
-		return id;
+		return id; 
 	}
 
 	public void setId(Integer id) {

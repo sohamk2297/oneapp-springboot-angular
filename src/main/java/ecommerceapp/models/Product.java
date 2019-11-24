@@ -1,5 +1,7 @@
 package ecommerceapp.models;
 
+import java.util.Collection;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Product {
@@ -25,13 +27,21 @@ public class Product {
 	@JoinColumn(name = "category_id")
 	private Category category;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "details_id")
-	private Details details;
+	/*
+	 * @OneToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "details_id") private Details details;
+	 */
 
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", details=" + details + "]";
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+	private Collection<DetailField> detailFields;
+	
+	public Collection<DetailField> getDetailFields() {
+		return detailFields;
+	}
+
+	public void setDetailFields(Collection<DetailField> detailFields) {
+		this.detailFields = detailFields;
 	}
 
 	public Double getPrice() {
@@ -74,12 +84,9 @@ public class Product {
 		this.category = category;
 	}
 
-	public Details getDetails() {
-		return details;
-	}
-
-	public void setDetails(Details details) {
-		this.details = details;
-	}
-
+	/*
+	 * public Details getDetails() { return details; }
+	 * 
+	 * public void setDetails(Details details) { this.details = details; }
+	 */
 }

@@ -2,7 +2,6 @@ package ecommerceapp.controllers;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ecommerceapp.models.Category;
 import ecommerceapp.models.DetailField;
-import ecommerceapp.models.Details;
 import ecommerceapp.models.Product;
 import ecommerceapp.repos.CategoryRepository;
 import ecommerceapp.repos.ProductRepository;
@@ -30,6 +28,13 @@ public class ProductController {
 	private ProductRepository productRepository;
 	@Autowired
 	private CategoryRepository categoryRepository;
+	
+	@GetMapping(path = "search/{namelike}")
+	public Iterable<Product> search(@PathVariable String namelike) {
+		
+		return productRepository.search(namelike);
+		
+	}
 	
 	@GetMapping(path = "/{id}")
 	public @ResponseBody Product getById(@PathVariable String pid) {
@@ -58,7 +63,7 @@ public class ProductController {
 	
 	@SuppressWarnings("unchecked")
 	@PostMapping(path = "/add",consumes = "application/json")
-	public @ResponseBody Product addProduct(@RequestBody Map<String, Object> map) {
+	public @ResponseBody Product addProduct(@RequestBody(required = true) Map<String, Object> map) {
 		try
 		{
 		Product product = new Product();
@@ -88,15 +93,17 @@ public class ProductController {
 		Collection<DetailField> detailFields = new ArrayList<DetailField>();
 		Map<String,String> map2 = ((Map<String, String>) map.get("details"));
 		for(String key: map2.keySet())
-		{
+		{ 
 			DetailField detailField = new DetailField();
 			detailField.setField(key);
 			detailField.setValue(map2.get(key));
+			detailField.setProduct(product);
 			detailFields.add(detailField);
 		}
-		Details details = new Details();
-		details.setDetailFields(detailFields);
-		product.setDetails(details);
+			/*
+			 * Details details = new Details(); details.setDetailFields(detailFields);
+			 */
+		product.setDetailFields(detailFields);
 		return productRepository.save(product);
 		}
 		catch (Exception e) {
