@@ -1,7 +1,5 @@
 ecommerceapp/repos/CategoryRepository.class
-ecommerceapp/models/Details.class
 ecommerceapp/models/DetailField.class
-ecommerceapp/repos/DetailsRepository.class
 ecommerceapp/controllers/ProductController.class
 ecommerceapp/MainApp.class
 ecommerceapp/repos/ProductRepository.class
