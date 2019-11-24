@@ -1,6 +1,7 @@
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/MainApp.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/repos/CategoryRepository.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/models/Category.java
+/home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/controllers/CategoryController.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/models/DetailField.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/models/Product.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/controllers/ProductController.java
