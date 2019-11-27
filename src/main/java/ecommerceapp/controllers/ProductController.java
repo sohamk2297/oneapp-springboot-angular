@@ -84,12 +84,7 @@ public class ProductController {
 		product.setPrice(Double.parseDouble((String) map.get("price")));
 		product.setStock(Integer.parseInt((String) map.get("stock")));
 		
-			/*
-			 * Map<String, String> detailstemp = new HashMap<String, String>(); Map<String,
-			 * String> map2 = ((Map<String, String>) map.get("details")); for(String key :
-			 * map2.keySet()) { detailstemp.put(key,map2.get(key)); } Details details = new
-			 * Details(); details.setDetailsMap(detailstemp); product.setDetails(details);
-			 */
+			
 		Collection<DetailField> detailFields = new ArrayList<DetailField>();
 		Map<String,String> map2 = ((Map<String, String>) map.get("details"));
 		for(String key: map2.keySet())
@@ -100,9 +95,7 @@ public class ProductController {
 			detailField.setProduct(product);
 			detailFields.add(detailField);
 		}
-			/*
-			 * Details details = new Details(); details.setDetailFields(detailFields);
-			 */
+			
 		product.setDetailFields(detailFields);
 		return productRepository.save(product);
 		}

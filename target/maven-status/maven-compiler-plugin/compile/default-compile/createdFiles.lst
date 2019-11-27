@@ -1,8 +1,14 @@
 ecommerceapp/controllers/CategoryController.class
 ecommerceapp/repos/CategoryRepository.class
+ecommerceapp/controllers/BuyerController.class
+ecommerceapp/repos/ProductRepository.class
+ecommerceapp/repos/UserRepository.class
+ecommerceapp/models/Category.class
+ecommerceapp/repos/BuyerRepository.class
+ecommerceapp/models/Cart.class
 ecommerceapp/models/DetailField.class
+ecommerceapp/models/User.class
 ecommerceapp/controllers/ProductController.class
 ecommerceapp/MainApp.class
-ecommerceapp/repos/ProductRepository.class
-ecommerceapp/models/Category.class
 ecommerceapp/models/Product.class
+ecommerceapp/models/Buyer.class
