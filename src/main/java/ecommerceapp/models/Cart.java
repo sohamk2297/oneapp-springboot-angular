@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -15,8 +16,19 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	private Double totalPrice;
+	
 	@OneToMany(cascade = CascadeType.ALL)
-	private Collection<Product> products;
+	private Collection<CartItem> cartItems;
+
+	
+	public Double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 
 	public Integer getId() {
 		return id;
@@ -26,13 +38,14 @@ public class Cart {
 		this.id = id;
 	}
 
-	public Collection<Product> getProducts() {
-		return products;
+	public Collection<CartItem> getCartItems() {
+		return cartItems;
 	}
 
-	public void setProducts(Collection<Product> products) {
-		this.products = products;
+	public void setCartItems(Collection<CartItem> cartItems) {
+		this.cartItems = cartItems;
 	}
+
 	
 	
 }

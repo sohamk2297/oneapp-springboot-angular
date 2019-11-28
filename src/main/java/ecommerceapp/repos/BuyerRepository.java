@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import ecommerceapp.models.Buyer;
 
 @Repository
-public interface BuyerRepository extends CrudRepository<Buyer, Integer>{
+public interface BuyerRepository extends CrudRepository<Buyer, String>{
 
 }

@@ -42,7 +42,7 @@ public class Product {
 
 	public void setDetailFields(Collection<DetailField> detailFields) {
 		this.detailFields = detailFields;
-	}
+	} 
 
 	public Double getPrice() {
 		return price;
