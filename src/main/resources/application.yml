@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: springuser
+    password: Winner@123
+    url: jdbc:mysql://localhost:3306/ecomapp?createDatabaseIfNotExist=true
+  jpa:
+    hibernate:
+      ddl-auto: update
+  

@@ -1,8 +1,11 @@
+/home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/config/WebSecurityConfig.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/controllers/BuyerController.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/models/Buyer.java
+/home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/controllers/SignupController.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/repos/UserRepository.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/models/User.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/models/Cart.java
+/home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/controllers/LoginController.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/models/DetailField.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/models/CartItem.java
 /home/soham/spring-workspace/ecommerceapp/src/main/java/ecommerceapp/controllers/ProductController.java

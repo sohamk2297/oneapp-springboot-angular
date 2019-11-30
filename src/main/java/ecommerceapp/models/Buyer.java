@@ -10,14 +10,8 @@ import javax.persistence.OneToOne;
 @Entity
 public class Buyer extends User{
 
-	
-@Override
-	public String toString() {
-		return "Buyer [firstname=" + firstname + ", lastname=" + lastname + ", dob=" + dob + ", cart=" + cart
-				+ ", username=" + username + ", email=" + email + ", encryptedPassword=" + encryptedPassword + "]";
-	}
+	 
 
-	//	private Integer userId;
 	private String firstname;
 	private String lastname;
 	private String dob;
@@ -79,6 +73,11 @@ public class Buyer extends User{
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+
+	@Override
+	public String toString() {
+		return "Buyer [firstname=" + firstname + ", lastname=" + lastname + ", dob=" + dob + ", cart=" + cart + "]";
 	}
 
 	public String getDob() {

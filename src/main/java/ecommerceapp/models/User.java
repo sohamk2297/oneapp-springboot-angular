@@ -5,6 +5,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
@@ -18,7 +20,7 @@ public abstract class User {
 	protected String email;
 	protected String encryptedPassword;
 	public String getUsername() {
-		return username;
+		return username; 
 	}
 	public void setUsername(String username) {
 		this.username = username;
@@ -33,11 +35,8 @@ public abstract class User {
 		return encryptedPassword;
 	}
 	public void setEncryptedPassword(String encryptedPassword) {
-//		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(5);
-
-		
-//		this.encryptedPassword =  bCryptPasswordEncoder.encode(encryptedPassword);
-		this.encryptedPassword = encryptedPassword;
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(5);		
+		this.encryptedPassword =  bCryptPasswordEncoder.encode(encryptedPassword);
 	}
 
 	

@@ -18,12 +18,10 @@ import ecommerceapp.models.CartItem;
 import ecommerceapp.models.Product;
 import ecommerceapp.repos.BuyerRepository;
 import ecommerceapp.repos.ProductRepository;
-import ecommerceapp.repos.UserRepository;
-
+ 
 @RestController
 @RequestMapping("/buyer")
 public class BuyerController {
-
 
 	@Autowired
 	private BuyerRepository buyerRepository;
@@ -48,10 +46,7 @@ public class BuyerController {
 			if(!productRepository.findById(productid).isEmpty())
 			{
 				Product product = productRepository.findById(productid).get();
-				/*
-				 * product.setStock(product.getStock() - quantity);
-				 * productRepository.save(product);
-				 */
+				
 				if(buyer.getCart()==null)
 				{
 					Cart cart = new Cart();
