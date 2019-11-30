@@ -26,6 +26,9 @@ public class Product {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "category_id")
 	private Category category;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private Collection<Seller> sellers;
 
 	/*
 	 * @OneToOne(cascade = CascadeType.ALL)
@@ -82,6 +85,14 @@ public class Product {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public Collection<Seller> getSellers() {
+		return sellers;
+	}
+
+	public void setSellers(Collection<Seller> sellers) {
+		this.sellers = sellers;
 	}
 
 	/*

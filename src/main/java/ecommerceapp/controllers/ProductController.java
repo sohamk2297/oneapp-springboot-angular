@@ -26,8 +26,6 @@ public class ProductController {
 	
 	@Autowired
 	private ProductRepository productRepository;
-	@Autowired
-	private CategoryRepository categoryRepository;
 	
 	@GetMapping(path = "search/{namelike}")
 	public Iterable<Product> search(@PathVariable String namelike) {
@@ -61,48 +59,6 @@ public class ProductController {
 		return productRepository.findAll();
 	}
 	
-	@SuppressWarnings("unchecked")
-	@PostMapping(path = "/add",consumes = "application/json")
-	public @ResponseBody Product addProduct(@RequestBody(required = true) Map<String, Object> map) {
-		try
-		{
-		Product product = new Product();
-		product.setName((String) map.get("name")); 
-		
-		String cattemp = (String) map.get("category");
-		Category category = null;
-		if(categoryRepository.findByName(cattemp) == null)
-		{
-			category = new Category();
-			category.setName(cattemp);
-		}
-		else
-		{
-			category = categoryRepository.findByName(cattemp);	
-		}
-		product.setCategory(category);
-		product.setPrice(Double.parseDouble((String) map.get("price")));
-		product.setStock(Integer.parseInt((String) map.get("stock")));
-		
-			
-		Collection<DetailField> detailFields = new ArrayList<DetailField>();
-		Map<String,String> map2 = ((Map<String, String>) map.get("details"));
-		for(String key: map2.keySet())
-		{ 
-			DetailField detailField = new DetailField();
-			detailField.setField(key);
-			detailField.setValue(map2.get(key));
-			detailField.setProduct(product);
-			detailFields.add(detailField);
-		}
-			
-		product.setDetailFields(detailFields);
-		return productRepository.save(product);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
+	
 
 }

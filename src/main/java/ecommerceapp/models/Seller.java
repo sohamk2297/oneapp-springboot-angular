@@ -1,6 +1,12 @@
 package ecommerceapp.models;
 
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Seller extends User{
@@ -10,6 +16,16 @@ public class Seller extends User{
 	private String dateOfRegistration;
 	private Double rating;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JsonIgnore
+ 	private Collection<Product> productCatalog;
+	
+	public Collection<Product> getProductCatalog() {
+		return productCatalog;
+	}
+	public void setProductCatalog(Collection<Product> productCatalog) {
+		this.productCatalog = productCatalog;
+	}
 	public String getDateOfRegistration() {
 		return dateOfRegistration;
 	}

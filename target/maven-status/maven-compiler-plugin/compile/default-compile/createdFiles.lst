@@ -4,10 +4,12 @@ ecommerceapp/models/CartItem.class
 ecommerceapp/controllers/LoginController.class
 ecommerceapp/controllers/BuyerController.class
 ecommerceapp/config/WebSecurityConfig.class
+ecommerceapp/repos/SellerRepository.class
 ecommerceapp/repos/ProductRepository.class
 ecommerceapp/repos/UserRepository.class
 ecommerceapp/models/Category.class
 ecommerceapp/models/Seller.class
+ecommerceapp/controllers/SellerController.class
 ecommerceapp/repos/BuyerRepository.class
 ecommerceapp/controllers/SignupController.class
 ecommerceapp/models/Cart.class
