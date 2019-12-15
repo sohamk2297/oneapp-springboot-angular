@@ -5,20 +5,27 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class User {
+public class User {
 	
 	@Id
 	protected String username;
 	
 
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", email=" + email + ", encryptedPassword=" + encryptedPassword + "]";
+	}
 	protected String email;
 	protected String encryptedPassword;
+	
+	
 	public String getUsername() {
 		return username; 
 	}
@@ -35,8 +42,7 @@ public abstract class User {
 		return encryptedPassword;
 	}
 	public void setEncryptedPassword(String encryptedPassword) {
-		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(5);		
-		this.encryptedPassword =  bCryptPasswordEncoder.encode(encryptedPassword);
+		this.encryptedPassword =  encryptedPassword;
 	}
 
 	

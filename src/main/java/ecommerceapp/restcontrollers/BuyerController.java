@@ -1,4 +1,4 @@
-package ecommerceapp.controllers;
+package ecommerceapp.restcontrollers;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,7 +18,8 @@ import ecommerceapp.models.CartItem;
 import ecommerceapp.models.Product;
 import ecommerceapp.repos.BuyerRepository;
 import ecommerceapp.repos.ProductRepository;
- 
+
+
 @RestController
 @RequestMapping("/buyer")
 public class BuyerController {
@@ -39,11 +40,11 @@ public class BuyerController {
 	public @ResponseBody Cart addToCart(@PathVariable(name = "uname") String uname,@PathVariable(name = "productid") Integer productid,@PathVariable(name = "quantity") Integer quantity)
 	{
 		Optional<Buyer> optional = buyerRepository.findById(uname);
-		if ( !optional.isEmpty())
+		if (optional.isPresent())
 		{
 			Buyer buyer = optional.get();
 
-			if(!productRepository.findById(productid).isEmpty())
+			if(!productRepository.findById(productid).isPresent())
 			{
 				Product product = productRepository.findById(productid).get();
 				

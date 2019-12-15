@@ -1,4 +1,4 @@
-package ecommerceapp.controllers;
+package ecommerceapp.restcontrollers;
 
 import java.util.ArrayList;
 import java.util.Collection;

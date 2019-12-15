@@ -1,7 +1,9 @@
-package ecommerceapp.controllers;
+package ecommerceapp.restcontrollers;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,8 +16,9 @@ import ecommerceapp.models.Seller;
 
 @RestController("/")
 public class SignupController {
-	
-	@PostMapping("/signup")
+	@Autowired
+	private PasswordEncoder encoder;
+	@PostMapping(path = "/signup",consumes = "application/json")
 	public @ResponseBody boolean signup(@RequestBody Map<String, String> map) {
 		RestTemplate restTemplate = new RestTemplate();	
 		
@@ -24,7 +27,7 @@ public class SignupController {
 		case "buyer":
 			Buyer buyer = new Buyer();
 			buyer.setUsername((String) map.get("username"));
-			buyer.setEncryptedPassword((String) map.get("password"));
+			buyer.setEncryptedPassword(encoder.encode((String) map.get("password")));
 			buyer.setEmail((String) map.get("email"));
 			buyer.setFirstname((String) map.get("firstname"));
 			buyer.setLastname((String) map.get("lastname"));			
@@ -34,7 +37,7 @@ public class SignupController {
 		case "seller":
 			Seller seller = new Seller();
 			seller.setUsername((String) map.get("username"));
-			seller.setEncryptedPassword((String) map.get("password"));
+			seller.setEncryptedPassword(encoder.encode((String) map.get("password")));
 			seller.setEmail((String) map.get("email"));
 			seller.setDateOfRegistration((String) map.get("dor"));
 			seller.setRating(0.0);
